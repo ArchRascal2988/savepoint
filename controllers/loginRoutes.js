@@ -59,6 +59,9 @@ router.post('/login', async(req,res)=>{
             where:{
                 email:req.body.email
             }});
+        
+            console.log(userData);
+            
         if(!userData){
             res.status(400).json({message:"Incorrect email. Try again please."});
         } else{
