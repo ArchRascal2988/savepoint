@@ -18,8 +18,10 @@ const sess = {
   cookie: {
     maxAge: 86400,
   },
-  resave: true,
+  resave: false,
   saveUninitialized: true,
+  checkExpirationInterval: 15*60*1000,
+  expiration: 60*60*1000,
   store: new SequelizeStore({
     db: sequelize,
   }),

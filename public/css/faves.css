@@ -45,15 +45,9 @@ nav
   }
 }
 
-body,
-header,
-.gradient-custom {
-  /* fallback for old browsers */
-  background: #6a11cb;
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to center, #1d4b73, rgb(97, 43, 185));
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to center, #1d4b73, rgb(91, 10, 75));
+.favoriteGame {
+  display: flex;
+  flex: wrap;
+  padding-top: 15px;
+  background-color: var(--dark-purple);
 }
-
-

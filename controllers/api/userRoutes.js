@@ -1,34 +1,5 @@
 const router = require('express').Router();
-const {User} = require("../models");
-
-router.get('/login', async(req,res)=>{
-    try{
-        if(req.session.loggedIn==true){
-            res.redirect('/home');
-        } else{
-            res.render('login' ,{
-                isLogin: true
-            })
-
-        }
-    } catch(err){
-        res.status(500).json(err);
-    }
-});
-
-router.get('/signup', async(req,res)=>{
-    try{
-        if(req.session.loggedIn==true){
-            res.redirect('/home');
-        } else{
-            res.render('signup', {
-                isLogin: true
-            })
-        }
-    } catch(err){
-        res.status(500).json(err);
-    }
-});
+const {User} = require("../../models");
 
 router.post('/signup', async(req,res)=>{
     try{
@@ -37,11 +8,11 @@ router.post('/signup', async(req,res)=>{
             email: req.body.email,
             password: req.body.password
         });
-        console.log(newUser);
+
         if(!newUser){
             res.status(400).json({message:"Your password must at least be 8 characters and you need to have a valid email."});
         }
-        console.log(newUser.toJSON())
+
         req.session.save(()=>{
             req.session.loggedIn= true;
             req.session.userId= newUser.id;
@@ -60,18 +31,21 @@ router.post('/login', async(req,res)=>{
                 email:req.body.email
             }});
         
-            console.log(userData);
-            
+
         if(!userData){
-            res.status(400).json({message:"Incorrect email. Try again please."});
+            res.status(400).json({message:"Incorrect email/password. Try again please."});
         } else{
             const validPass= userData.checkPassword(req.body.password);
-            if(!validPass) {res.status(400).json({message:"Incorrect password. Try again please."})};
-            req.session.save(()=>{
-                req.session.loggedIn= true;
-                req.session.userId= userData.id;
-                res.status(200).json(userData);
-            })
+            if(!validPass) {
+                res.status(400).json({message:"Incorrect email/password. Try again please."})
+            }
+            else{
+                req.session.save(()=>{
+                    req.session.loggedIn= true;
+                    req.session.userId= userData.id;
+                    res.status(200).json(userData);
+               })
+        }
         }
     } catch(err){
         res.status(500).json(err);
@@ -88,4 +62,4 @@ router.post('/logout', async(req,res)=>{
     }
 });
 
-module.exports = router;
+module.exports= router;

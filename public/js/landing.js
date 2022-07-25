@@ -10,15 +10,19 @@ const loginFormHandler = async (event) => {
   
 
   if (uEmail && uPass) {
-    const response = await axios.post('/landing/login', {
+    const response = await axios.post('/api/user/login', {
       email: uEmail,
       password: uPass
-    }).then((res)=>{ return res});
+    })
+    .then((res)=>{ 
+        return res;
+    })
+    .catch((err)=> alert("Username or password is incorrect."));
 
-    if (response) {
+    if (response.status==200){
       window.location.replace('/home');
-    } else {
-      console.log(response.statusText);
+    } else{
+      alert("Something went wrong :(")
     }
   }
 };
@@ -31,16 +35,20 @@ const signupFormHandler = async (event) => {
   const uPass = document.querySelector('#typePasswordX').value.trim();
 
   if (uName && uEmail && uPass) {
-    const response = await axios.post('/landing/signup', {
+    const response = await axios.post('/api/user/signup', {
       username: uName,
       email: uEmail,
       password: uPass
-    }).then((res)=>{ return res});
+    })
+    .then((res)=>{ 
+        return res;
+    })
+    .catch((err)=> alert("Password must be at least eight characters."));
 
-    if (response) {
+    if (response.status==200){
       window.location.replace('/home');
-    } else {
-      console.log("Wrong email and/or password. Please re-enter.");
+    } else{
+      alert("Something went wrong :(")
     }
   }
 };
