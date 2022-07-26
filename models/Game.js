@@ -2,9 +2,7 @@ const { Model, DataTypes}= require("sequelize");
 const sequelize= require("../config/connection");
 
 class Game extends Model{
-    convertDate= async () =>{
-        return new Date(this.release_date).toLocaleDateString("en-US",{day:"numeric", month:"short", year:"numeric"});
-    }
+    
 }
 
 Game.init(

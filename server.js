@@ -3,7 +3,6 @@ const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
-const helpers = require('./utils/helpers');
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -11,7 +10,39 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const hbs = exphbs.create();
+const hbs = exphbs.create({
+    helpers:{
+      getDate(num){
+        console.log(num)
+        let raw= new Date(num*1000)
+        console.log(raw)
+        return raw.toLocaleDateString("en-US",{day:"numeric", month:"short", year:"numeric"});
+      },
+      getStars(num) {
+        switch(num){
+          case(0<=num && num<=20): 
+            //dosomethin
+          break;
+    
+          case (21<=num && num<=40):
+            //dosomethin
+          break;
+    
+          case (41<=num && num<=60):
+            //dosomethin
+          break;
+    
+          case (61<=num && num<=80):
+            //dosomethin
+          break;
+    
+          case (81<=num && num<=100):
+            //dosomethin
+          break;
+        }
+      }
+    }
+});
 
 const sess = {
   secret: 'Super secret secret',

@@ -8,7 +8,7 @@ router.get("/", async(req,res) =>{
     try{
         const random= Math.floor(Math.random()*5000);
         const gameData= await Game.findAll({
-            attributes: ['title', 'rating', 'id', 'cover_art_url'],
+            attributes: ['title', 'rating', 'id', 'cover_art_url','release_date'],
             limit: 30,
             where:{
                 id:{
@@ -35,6 +35,8 @@ router.get("/", async(req,res) =>{
         const gameResults =  gameData.map((game)=> {
             return game.get({plain:true});
         });
+
+        res.status(200).json(gameResults);
         res.render('searchResults', {
             loggedIn: req.session.loggedIn,  
             gameResults,
@@ -114,7 +116,6 @@ router.get('/single/:id', async(req,res) => {
     });
         if(!gameData) res.status(404).json({message: "No game found with this ID"});
 
-        gameData.release_date= await gameData.convertDate();
         const gameResult = gameData.get({plain:true})
         res.render ('gameDetails',{
             gameResult,
@@ -122,7 +123,7 @@ router.get('/single/:id', async(req,res) => {
         })
     }
     catch(err){
-        res.status(400).json(err);
+        res.status(500).json(err);
     }
 });
 

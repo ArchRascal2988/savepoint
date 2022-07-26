@@ -3,8 +3,6 @@ const{User, Game} = require("../models");
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req,res)=>{
-    console.log("getting user...");
-    console.log(req.session.userId)
     try{
             const currUser= await User.findOne({
                 attributes:['username'],
