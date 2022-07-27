@@ -1,19 +1,27 @@
 const router = require('express').Router();
 const { User, Game } = require('../models');
+const {Op} = require("sequelize");
 
 router.get('/', async (req, res) => {
   try {
+    const popularGamesData= await Game.findAll({
+      where:{
+        rating:{
+          [Op.gte]: 90
+        }
+      }
+    });
+
     const gamesArr=[];
-    for(i=0; i<9;i++){
-      let random= Math.floor(Math.random()*200);
-      let showcaseItem= await Game.findByPk(random,{
-        attributes: ['cover_art_url','title','id']
-      });
+
+    for(i=0; i<15;i++){
+      let random= Math.floor(Math.random()*popularGamesData.length);
+      let showcaseItem= popularGamesData[random]
       
       showcaseGame= showcaseItem.get({plain:true});
       gamesArr.push(showcaseGame);
     }
-    console.log(gamesArr);
+    
     res.render('homepage', { 
       isLogin: false,
       gamesArr,

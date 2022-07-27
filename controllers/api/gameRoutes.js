@@ -52,7 +52,7 @@ router.get("/:gameName", async(req,res) =>{
     try{
         const searchTerm= req.params.gameName;
         const gameData= await Game.findAll({
-            attributes: ['title', 'rating', 'id', 'cover_art_url'],
+            attributes: ['title', 'rating', 'id', 'cover_art_url', 'release_date'],
             where:{
                 title:{
                     [Op.like]: `%${searchTerm}%`
