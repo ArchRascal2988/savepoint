@@ -22,9 +22,9 @@
           <br>
           <h4 class="fw mb-2">{{gameResult.description}}</h4>
           <br>
-          <h4 class="fw mb-2">Game rating: {{gameResult.rating}} out of 100</h4>
-          <a href="#" class="btn btn-primary">★ Favorite</a>
-          <a href="#" class="btn btn-primary">+ Review</a>
+          <h4 class="fw mb-2">Game rating: {{gameResult.rating}}/100</h4>
+          <button data-id= {{id}} id="addPBtn" class="btn btn-primary">★ Favorite</button>
+          <button type='button' data-id= {{id}} id="addPBtn" class="btn btn-primary">★ Favorite</button>
         </div>
       </div>
   </div>
@@ -49,4 +49,4 @@
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script rel="script" src="/public/js/games.js"></script>
-<script src="/public/js/search.js"></script>
+  <script src="/public/js/search.js"></script>

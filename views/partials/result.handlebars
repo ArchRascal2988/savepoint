@@ -3,11 +3,14 @@
     <img class="card-img-top" src="{{cover_art_url}}" alt="Card image cap">
     <div class="card-body">
         <h6 class="card-text" style="font-family: Arial, Helvetica, sans-serif; color:rgb(248, 245, 245)">{{title}}</h6>
-        <p> {{rating}}/100</p>
+        <div class='ratingDiv'>
+            <p>{{rating}}/100</p>
+            {{getStars rating}}
+        </div>
     </a>
 
     <br>
-        <a href="#" data-id= {{id}} id="addPBtn" class="btn btn-primary">★ Favorite</a>
-        <a href="#" data-id= {{id}} id="addRBtn" class="btn btn-primary">+ Review</a>
+        <button type='button' data-id= {{id}} id="addPBtn" class="btn btn-primary">★ Favorite</button>
+        <button id='addRBtn' data-id= {{id}} class="btn btn-primary">+ Review</button>
     </div>
 </div>

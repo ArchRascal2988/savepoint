@@ -38,18 +38,23 @@
 {{/unless}}
 
 <main>
+  <div class="reviewModal">
+    <p> Hello</p>
+  </div>
   {{{body}}}
+  
 </main>
 
-<footer style="background-color: #343a40";>
-  <div class="row" style="text-align: center;">
-    <p style="color: white">SAMPLE FOOTER</p>
+<footer>
+  <div>
+    <p>SAMPLE FOOTER</p>
   </div>
  </footer>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 {{#if loggedIn}}
   <script rel="script/js" src="/public/js/logout.js"></script>
 {{/if}}
+  
 </body>
 
 </html>

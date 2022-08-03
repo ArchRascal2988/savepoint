@@ -1,4 +1,5 @@
 const general= document.querySelector("main");
+
 const updateHandler= async (id) =>{
     const response= await axios.put(`/api/playlist/${id}`).then((res)=>{ return res.toJson()});
     if(response) window.location.reload(true);

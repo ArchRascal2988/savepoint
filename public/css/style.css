@@ -25,6 +25,15 @@ nav
     text-align: center;
 }
 
+
+.modal{
+  display: hidden;
+  position: fixed;
+  bottom: 50%;
+  right: 50%;
+  z-index: 1;
+}
+
 .glow {
   font-size: 80px;
   color: var(--dark-purple);
