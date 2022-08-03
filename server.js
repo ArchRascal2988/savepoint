@@ -21,23 +21,23 @@ const hbs = exphbs.create({
       getStars(num) {
         switch(num){
           case(0<=num && num<=20): 
-            //dosomethin
+            return '⭐'
           break;
     
           case (21<=num && num<=40):
-            //dosomethin
+            return '⭐⭐'
           break;
     
           case (41<=num && num<=60):
-            //dosomethin
+            return '⭐⭐⭐'
           break;
     
           case (61<=num && num<=80):
-            //dosomethin
+            return '⭐⭐⭐⭐'
           break;
     
           case (81<=num && num<=100):
-            //dosomethin
+            return '⭐⭐⭐⭐⭐'
           break;
         }
       }
