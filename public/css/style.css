@@ -26,11 +26,15 @@ nav
 }
 
 
-.modal{
-  display: hidden;
+.reviewModal{
+  display: none;
+  width: 500px;
+  height:675px;
+  background-color: var(--blue);
+  border: 1.5px var(--light-pink);
   position: fixed;
-  bottom: 50%;
-  right: 50%;
+  bottom: 20vh;
+  right: 75vh;
   z-index: 1;
 }
 
