@@ -1,26 +1,31 @@
 const general= document.querySelector("main");
 const modal= document.querySelector('.reviewModal');
+const blurr= document.querySelector('.blurDiv');
+
 let currentGame;
 
 
-const reviewHandler= async (id) =>{
-    console.log('hi')
-    console.log(modal)
-    currentGame=id;
-    modal.style.display= 'block'
+const modalToggle= async (id, sw) =>{
+    if(sw){
+        modal.style.display= 'block';
+        blurr.style.display='block';
+    } else{
+        modal.style.display= 'none';
+        blurr.style.display='none';
+    }
 }
 
-const submitHandler= (event, id) =>{
-    const gId= event.target.dataset.id;
+const addReviewHandler= (event, id) =>{
+    let gId= event.target.dataset.id;
     const response= axios.post(`/api/reviews/${id}/add`, {
             gameId: gId
     }).then((res)=>{ return res});
-    if(response) alert("Game successfully added.");
+    if(response.status==200) alert("Review successfully added.");
 }
 
 const addPlayHandler= (id) =>{
     const response= axios.post(`/api/playlist/${id}/add`).then((res)=>{ return res}).catch((err)=> alert("Something went wrong :("));
-    if(response) alert("Game successfully added.");
+    if(response.status==200) alert("Game successfully added.");
 }
 
 const deleteRevHandler= (event, id) =>{
@@ -36,6 +41,13 @@ general.addEventListener("click", (event) =>{
     }
     if(event.target.id=="addRBtn"){
         event.preventDefault();
-        reviewHandler(event.target.dataset.id);
+        currentGame=event.target.dataset.id;
+        modalToggle(true);
+    }
+    if(event.target.id=="reviewSubmit"){
+        event.preventDefault();
+        currentGame='';
+        modalToggle(false);
+        addReviewHandler(currentGame);
     }
 })

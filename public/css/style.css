@@ -25,17 +25,34 @@ nav
     text-align: center;
 }
 
+.blurDiv{
+  min-width: 100%;
+  min-height: 100%;
+  display: none;
+  backdrop-filter: blur(10px);
+}
+
 
 .reviewModal{
   display: none;
-  width: 500px;
-  height:675px;
+  width: 70vh;
+  height:80vh;
   background-color: var(--blue);
   border: 1.5px var(--light-pink);
   position: fixed;
-  bottom: 20vh;
+  bottom: 6vh;
   right: 75vh;
   z-index: 1;
+}
+
+.reviewModal form{
+  min-height: 100%;
+  min-width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
 }
 
 .glow {
