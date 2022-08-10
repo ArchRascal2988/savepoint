@@ -123,6 +123,7 @@ router.get('/single/:id', async(req,res) => {
 
         const gameResult = gameData.get({plain:true})
         res.render ('gameDetails',{
+            loggedIn: req.session.loggedIn,  
             gameResult,
             isLogin: false
         })

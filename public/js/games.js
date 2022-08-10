@@ -77,7 +77,7 @@ general.addEventListener("click", (event) =>{
     if(event.target.id=="addRBtn"){
         event.preventDefault();
         currentGame=event.target.dataset.id;
-        currentRating= event.target.dataset.rating;
+        currentRating= parseInt(event.target.dataset.rating);
         modalToggle(true);
     }
     if(event.target.id=="reviewSubmit"){
