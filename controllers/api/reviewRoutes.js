@@ -4,7 +4,7 @@ const { Review } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
-router.post('/:id/add',  async (req,res)=>{
+router.post('/:id/add', withAuth, async (req,res)=>{
   try{ 
     const newReview= await Review.create({
       rating: req.body.rating,
@@ -26,8 +26,6 @@ router.put('/:id/change', withAuth, async (req,res)=>{
     },
     {
       where:{
-        rating: req.body.rating,
-        content: req.body.content,
         game_id: req.params.id,
         author_id: req.session.userId
       }
@@ -46,8 +44,6 @@ router.delete('/:id/delete', withAuth, async(req,res)=>{
   try{
     const deleteReview= await Review.destroy({
       where:{
-        rating: req.body.rating,
-        content: req.body.content,
         game_id: req.params.id,
         author_id: req.session.userId
       }
