@@ -29,7 +29,11 @@ nav
   min-width: 100%;
   min-height: 100%;
   display: none;
-  backdrop-filter: blur(10px);
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  backdrop-filter: blur(7px);
 }
 
 
@@ -42,7 +46,7 @@ nav
   position: fixed;
   bottom: 6vh;
   right: 75vh;
-  z-index: 1;
+  z-index: 2;
 }
 
 .reviewModal form{

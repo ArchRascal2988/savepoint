@@ -31,7 +31,7 @@ Game.init(
             allowNull: false
         },
         rating:{
-            type: DataTypes.DECIMAL,
+            type: DataTypes.INTEGER,
             allowNull:false,
             unique:false
         }

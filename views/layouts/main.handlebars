@@ -40,20 +40,24 @@
 <main>
   <div class="reviewModal">
     <form>
-       <div class="form-outline form-white mb-4">
+      <div class="form-outline form-white mb-4">
         <input type="email" id="rating" class="form-control form-control-lg" />
-      <label class="form-label" for="rating">Rating</label>
-    </div>
-    <div class="form-outline form-white mb-4">
-      <input type="email" id="notes" class="form-control form-control-lg" />
-      <label class="form-label" for="notes">Notes</label>
-    </div>
-    <button class="btn btn-outline-light btn-lg px-5" id="reviewSubmit" type="submit">Submit Review</button>
+        <label class="form-label" for="rating">Rating</label>
+      </div>
+      <div class="form-outline form-white mb-4">
+        <input type="email" id="notes" class="form-control form-control-lg" />
+        <label class="form-label" for="notes">Notes</label>
+      </div>
+      <div class="btnsDiv">
+        <button class="btn btn-outline-light btn-lg px-5" id="reviewSubmit" type="submit">Submit Review</button>
+        <button class="btn btn-outline-light btn-lg px-5" id="exitBtn" type="button">Exit</button>
+      </div>
     </form>
   </div>
   <div class="blurDiv">
-    {{{body}}}
   </div>
+    {{{body}}}
+  
 </main>
 
 <footer>

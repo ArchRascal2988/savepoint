@@ -5,21 +5,15 @@ const withAuth = require('../../utils/auth');
 
 
 router.post('/:id/add',  async (req,res)=>{
-  console.log(req.body)
-  try{
+  try{ 
+    
     const newReview= await Review.create({
       rating: req.body.rating,
       content: req.body.content,
       game_id: req.params.id,
-      author_id: req.session.authorId
+      author_id: req.session.userId
     })
     res.status(200).json(newReview);
-    const postReview = newReview.post({plain:true})
-    res.render('searchresult', {
-        postReview,
-        isLogin: false,
-        logged_in: req.session.loggedIn,
-    })
   }
   catch(err){
     res.status(500).json(err);

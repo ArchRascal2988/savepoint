@@ -10,7 +10,7 @@ Review.init(
             allowNull:false,
             validate:{
                 min:0,
-                max:5
+                max:100
             }
         },
         content:{
