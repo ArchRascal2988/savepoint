@@ -6,13 +6,13 @@ const withAuth = require('../../utils/auth');
 
 router.post('/:id/add',  async (req,res)=>{
   try{ 
-
     const newReview= await Review.create({
       rating: req.body.rating,
       content: req.body.content,
       game_id: req.params.id,
       author_id: req.session.userId
     })
+
     res.status(200).json(newReview);
   }
   catch(err){
@@ -29,7 +29,7 @@ router.put('/:id/change', withAuth, async (req,res)=>{
         rating: req.body.rating,
         content: req.body.content,
         game_id: req.params.id,
-        author_id: req.session.authorId
+        author_id: req.session.userId
       }
     })
     if(!updatedReview){
@@ -48,8 +48,8 @@ router.delete('/:id/delete', withAuth, async(req,res)=>{
       where:{
         rating: req.body.rating,
         content: req.body.content,
-        game_id: req.body.game_id,
-        author_id: req.session.authorId
+        game_id: req.params.id,
+        author_id: req.session.userId
       }
     })
     res.status(200).json(deleteReview);

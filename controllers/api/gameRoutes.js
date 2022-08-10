@@ -132,4 +132,22 @@ router.get('/single/:id', async(req,res) => {
     }
 });
 
+router.put('/rating/:id', async(req,res) => {
+    try{
+        const updatedGame = await Game.update ({
+            rating: req.body.newRating
+        },
+        {
+            where:{
+                id: req.params.id
+            }
+        })
+        
+        res.status(200).json(updatedGame)
+    }
+    catch(err){
+        res.status(500).json(err);
+    }
+});
+
 module.exports= router;

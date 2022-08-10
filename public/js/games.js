@@ -4,7 +4,7 @@ const blurr= document.querySelector('.blurDiv');
 const ratingInput= document.querySelector('#rating');
 const notesInput= document.querySelector('#notes');
 
-let currentGame;
+let currentGame, currentRating;
 
 
 const modalToggle= async (sw) =>{
@@ -17,11 +17,13 @@ const modalToggle= async (sw) =>{
         ratingInput.value= '';
         notesInput.value='';
         currentGame='';
+        currentRating= '';
     }
 }
 
 const addReviewHandler= async () =>{
     const rating= parseInt(ratingInput.value.trim());
+    const mod= currentRating + Math.round(rating/25)-2;
     const notes= notesInput.value.trim();
     
     const response= await axios.post(`/api/reviews/${currentGame}/add`, {
@@ -36,9 +38,21 @@ const addReviewHandler= async () =>{
     
     if(response.status==200){
         alert("Review successfully added.");
+        ratingUpdate(mod);
         modalToggle(false);
     }
         
+}
+
+const ratingUpdate= async (rating) =>{
+    console.log(rating);
+    const response= await axios.put(`api/games/rating/${currentGame}`,{
+        newRating: rating
+    })
+    .then((res)=>{return res})
+    .catch((err)=> console.error(err));
+
+    if(response.status==200) return;
 }
 
 const addPlayHandler= async (id) =>{
@@ -63,6 +77,7 @@ general.addEventListener("click", (event) =>{
     if(event.target.id=="addRBtn"){
         event.preventDefault();
         currentGame=event.target.dataset.id;
+        currentRating= event.target.dataset.rating;
         modalToggle(true);
     }
     if(event.target.id=="reviewSubmit"){

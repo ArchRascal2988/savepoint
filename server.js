@@ -13,9 +13,9 @@ const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({
     helpers:{
       getDate(num){
-        console.log(num)
+        
         let raw= new Date(num*1000)
-        console.log(raw)
+        
         return raw.toLocaleDateString("en-US",{day:"numeric", month:"short", year:"numeric"});
       },
       getStars(num) {
