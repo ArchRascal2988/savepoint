@@ -1,12 +1,12 @@
 
 const router = require('express').Router();
-const { User, Game, Review } = require('../../models');
+const { Review } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
 router.post('/:id/add',  async (req,res)=>{
   try{ 
-    
+
     const newReview= await Review.create({
       rating: req.body.rating,
       content: req.body.content,

@@ -1,5 +1,5 @@
 const router= require('express').Router();
-const {Game, Genre, Platform, Review} = require("../../models");
+const {User, Game, Genre, Platform, Review} = require("../../models");
 const {Op} = require("sequelize");
 
 
@@ -71,7 +71,8 @@ router.get("/:gameName", async(req,res) =>{
                 through:{
                     attributes:[]
                 }
-            }]
+            },
+        ]
 })
         if(!gameData) res.status(404).json({message:"Sorry no games found with those paramaters :(."});
         console.log(gameData);
@@ -110,7 +111,11 @@ router.get('/single/:id', async(req,res) => {
                 }
             },
             {
-                model: Review
+                model: Review,
+                include:{
+                    model: User,
+                    attributes: ["username"]
+                }
             }
         ]
     });
