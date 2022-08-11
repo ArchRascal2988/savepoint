@@ -1,10 +1,11 @@
 /* root variables */
 :root {
-  --light-pink: #F1BBF2;
+  --light-pink: #d97cdb98;
   --purple: #6B3073;
   --dark-purple: #381E40;
   --grey: #141726;
   --blue: #1D4B73;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body{
@@ -28,36 +29,111 @@ nav
 .blurDiv{
   min-width: 100%;
   min-height: 100%;
-  display: none;
+  visibility: hidden;
+  opacity: 0;
   position: fixed;
   bottom: 0;
   right: 0;
   z-index: 1;
   backdrop-filter: blur(7px);
+  transition: visiblity .3s ease-in-out, opacity .3s ease-in-out;
 }
 
+.myBtn{
+    text-align: center;
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    margin: 0;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 0.1rem;
+    border: 1.5px ridge var(--dark-purple);
+    outline: none;
+    color: var(--grey);
+    background-color: transparent;
+    transition: background-color .2s ease-out, color .2s ease-out;
+}
+
+.myBtn:hover{
+  color: var(--light-pink);
+  background-color: var(--dark-purple);
+}
 
 .reviewModal{
-  display: none;
-  width: 70vh;
+  visibility: hidden;
+  opacity: 0;
+  width: 75vh;
   height:80vh;
-  background-color: var(--blue);
-  border: 1.5px var(--light-pink);
+  background-color: var(--light-pink);
+  border-radius: 0.1rem;
+  border: 2.5px ridge var(--dark-purple);
   position: fixed;
-  bottom: 6vh;
-  right: 75vh;
+  bottom: 10%;
+  right: 32%;
   z-index: 2;
+  transition: visibility .1s ease-out, opacity .1s ease-out;
 }
 
 .reviewModal form{
   min-height: 100%;
   min-width: 100%;
   display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
+  flex-flow: column wrap;
+  justify-content: space-around;
   align-items: center;
   margin: 5px;
 }
+
+label{
+  text-align: center;
+  width: 100%;
+  font-size: 30px;
+  font-style: oblique;
+  font-weight: 600;
+}
+
+.reviewModal form + .formDiv{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 10px 0 10px 0;
+  min-width: 75%;
+}
+
+.inputDiv p{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#rating{
+  background-color: none;
+  width: min-content;
+}
+
+#notes{
+  width: 65vh;
+  height: 35vh;
+  padding: 12px;
+  line-height: 1.5;
+  font-size: 20px;
+  border-radius: 0.1rem;
+  border: 2.5px ridge var(--dark-purple);
+  justify-self: center;
+  display: flex;
+}
+
+.ui-widget-header{
+  background-image:none;
+  background-color: var(--dark-purple);
+}
+
+textarea{
+  resize: none;
+}
+
 
 .glow {
   font-size: 80px;

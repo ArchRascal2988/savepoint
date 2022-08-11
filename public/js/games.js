@@ -9,11 +9,15 @@ let currentGame, currentRating;
 
 const modalToggle= async (sw) =>{
     if(sw){
-        modal.style.display= 'block';
-        blurr.style.display='block';
+        modal.style.visibility= 'visible';
+        modal.style.opacity= '1';
+        blurr.style.visibility= 'visible';
+        blurr.style.opacity= '1';
     } else{
-        modal.style.display= 'none';
-        blurr.style.display='none';
+        modal.style.visibility= 'hidden';
+        modal.style.opacity= '0';
+        blurr.style.visibility= 'hidden';
+        blurr.style.opacity= '0';
         ratingInput.value= '';
         notesInput.value='';
         currentGame='';
@@ -35,8 +39,13 @@ const addReviewHandler= async () =>{
         alert(err)
         modalToggle(false);
     });
-    
-    if(response.status==200){
+    console.log(response)
+
+    if(response.request.responseURL.includes("/landing/login")){
+        window.location= response.request.responseURL;
+    }
+
+    else if(response.status==200){
         alert("Review successfully added.");
         ratingUpdate(mod);
         modalToggle(false);
@@ -45,7 +54,7 @@ const addReviewHandler= async () =>{
 }
 
 const ratingUpdate= async (rating) =>{
-    console.log(rating);
+    
     const response= await axios.put(`api/games/rating/${currentGame}`,{
         newRating: rating
     })

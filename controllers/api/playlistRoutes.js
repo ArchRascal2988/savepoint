@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Playlist} = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/:gameId/add', async (req,res)=>{
+router.post('/:gameId/add', withAuth, async (req,res)=>{
   try{
     const newGame= await Playlist.create({
       user_id: req.session.userId,
@@ -15,7 +15,7 @@ router.post('/:gameId/add', async (req,res)=>{
   }
 });
 
-router.put('/:gameId',  async (req,res)=>{
+router.put('/:gameId', withAuth, async (req,res)=>{
   try{
     const newPlayed= await Playlist.update({
       played: true

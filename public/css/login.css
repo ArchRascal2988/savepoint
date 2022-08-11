@@ -1,3 +1,13 @@
+/* root variables */
+:root {
+  --light-pink: #d97cdb98;
+  --purple: #6B3073;
+  --dark-purple: #381E40;
+  --grey: #141726;
+  --blue: #1D4B73;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 header{
     text-align: center;
     font-size: 50px;
