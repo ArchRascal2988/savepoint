@@ -84,7 +84,7 @@ nav
   margin: 5px;
 }
 
-label{
+.inputDiv label{
   text-align: center;
   width: 100%;
   font-size: 30px;
@@ -101,11 +101,18 @@ label{
   min-width: 75%;
 }
 
-.inputDiv p{
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
+.inputDiv p input{
+  font-weight: 600;
+  font-size: 38px;
+  color: #e9e63e;
+  transition: font-weight 0.5s linear, color 0.5s linear;
+}
+
+.close{
+  display: inline;
+  width: 50%;
+  margin: 0 10px 0 10px;
+  background-color: transparent;
 }
 
 #rating{

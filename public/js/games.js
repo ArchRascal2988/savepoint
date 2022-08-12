@@ -39,7 +39,6 @@ const addReviewHandler= async () =>{
         alert(err)
         modalToggle(false);
     });
-    console.log(response)
 
     if(response.request.responseURL.includes("/landing/login")){
         window.location= response.request.responseURL;
@@ -69,7 +68,11 @@ const addPlayHandler= async (id) =>{
     .then((res)=>{ return res})
     .catch((err)=> alert("Something went wrong :("));
 
-    if(response.status==200) alert("Game successfully added.");
+    if(response.request.responseURL.includes("/landing/login")){
+        window.location= response.request.responseURL;
+    }
+
+    else if(response.status==200) alert("Game successfully added.");
 }
 
 const deleteRevHandler= async (id) =>{
