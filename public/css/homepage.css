@@ -80,10 +80,11 @@ header,
     background: linear-gradient(to center, #1d4b73, rgb(91, 10, 75));
 }
 
-#popular-games {
+.showcase{
     font-family: monospace;
     color: red;
-    /* display: flex; */
+    display: flex;
+    flex-flow: row wrap;
     justify-content: space-between;
 }
 
@@ -92,5 +93,4 @@ header,
     flex: wrap;
     padding-top: 15px;
     background-color: var(--dark-purple);
-
 }

@@ -6,11 +6,12 @@
     </a>
 
     <br>
+        <p>Remove?  <a class="iconBtn" id="removeBtn" data-id={{id}}><i class="fa-solid fa-xmark"></i></a></p>
         {{#if playlist.played}}
-                <p>Played<i class="fa-solid fa-gamepad"></i></p>
+                <p>Played <i class="fa-solid fa-hexagon-check"></i></p>
             {{else}}
-                <p>In progress<i class="fa-solid fa-dungeon"></i></p>
-                <p>Cleared the game?<a class="btn btn-primary" id="completeToggle" data-id={{id}}><i class="fa-solid fa-scroll"></i></a></p>
+                <p>In progress  <i class="fa-solid fa-dungeon"></i></p>
+                <p>Cleared the game?  <a class="iconBtn" id="completeToggle" data-id={{id}}><i class="fa-solid fa-floppy-disk"></i></a></p>
         {{/if}}
     </div>
 </div>

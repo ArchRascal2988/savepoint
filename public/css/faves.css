@@ -7,7 +7,13 @@
   }
 
   i{
+    font-size: 20px;
+    color: var(--light-pink);
     pointer-events: none;
+  }
+
+  .iconBtn:hover + i{
+    font-size: 30px;
   }
 
   /* Grabbed styling from login page */
@@ -45,9 +51,9 @@ nav
   }
 }
 
-.favoriteGame {
+.card{
   display: flex;
-  flex: wrap;
+  flex-flow: row wrap;
   padding-top: 15px;
   background-color: var(--dark-purple);
 }

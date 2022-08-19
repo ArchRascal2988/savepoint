@@ -49,7 +49,7 @@ nav
     border-radius: 0.1rem;
     border: 1.5px ridge var(--dark-purple);
     outline: none;
-    color: var(--grey);
+    color: var(--purple);
     background-color: transparent;
     transition: background-color .2s ease-out, color .2s ease-out;
 }

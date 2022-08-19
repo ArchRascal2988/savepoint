@@ -1,9 +1,12 @@
-<h1>{{userData.username}}'s Favorites</h1>
-<div class="savedGames">
-{{#each userData.games as |game|}}
-    {{> fav}}
-{{/each}}
-</div>
+<section>
+    <h1>{{userData.username}}'s Playlist</h1>
+        <div class="showcase">
+            {{#each userData.games as |game|}}
+            {{> fav}}
+            {{/each}}
+        </div>
+
+</section>
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="/public/js/faves.js"></script>
