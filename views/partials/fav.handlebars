@@ -1,4 +1,4 @@
-<div class="card favoriteGame" style="width:20rem;">
+<div class="card myCard" style="width:20rem;">
     <a href="http://localhost:3001/api/games/single/{{id}}">
     <img class="card-img-top" src="{{cover_art_url}}" alt="Card image cap">
     <div class="card-body">
@@ -6,12 +6,12 @@
     </a>
 
     <br>
-        <p>Remove?  <a class="iconBtn" id="removeBtn" data-id={{id}}><i class="fa-solid fa-xmark"></i></a></p>
+        <p>Remove?  <a class="iconBtn" id="removeBtn" data-id={{id}}><i data-id={{id}} class="fa-solid fa-xmark"></i></a></p>
         {{#if playlist.played}}
-                <p>Played <i class="fa-solid fa-hexagon-check"></i></p>
+                <p>Played <i class="fa-solid fa-check"></i></p>
             {{else}}
                 <p>In progress  <i class="fa-solid fa-dungeon"></i></p>
-                <p>Cleared the game?  <a class="iconBtn" id="completeToggle" data-id={{id}}><i class="fa-solid fa-floppy-disk"></i></a></p>
+                <p>Cleared the game?  <a class="iconBtn" id="completeToggle" data-id={{id}}><i data-id={{id}} class="fa-solid fa-floppy-disk"></i></a></p>
         {{/if}}
     </div>
 </div>

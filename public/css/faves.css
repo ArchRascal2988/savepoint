@@ -4,16 +4,19 @@
     --dark-purple: #381E40;
     --grey: #141726;
     --blue: #1D4B73;
+    --red: #ff0000b2;
   }
 
   i{
     font-size: 20px;
     color: var(--light-pink);
+    margin-left: 7px;
     pointer-events: none;
+    transition: font-size linear 1s;
   }
 
-  .iconBtn:hover + i{
-    font-size: 30px;
+  .iconBtn:hover{
+    border: 1.5px dotted var(--red);
   }
 
   /* Grabbed styling from login page */
@@ -49,11 +52,4 @@ nav
   to {
       text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
   }
-}
-
-.card{
-  display: flex;
-  flex-flow: row wrap;
-  padding-top: 15px;
-  background-color: var(--dark-purple);
 }

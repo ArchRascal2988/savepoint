@@ -1,10 +1,11 @@
 /* root variables */
 :root {
   --light-pink: #d97cdb98;
-  --purple: #6B3073;
+  --purple: #9746a1;
   --dark-purple: #381E40;
   --grey: #141726;
   --blue: #1D4B73;
+  --red: #ff0000b2;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -24,6 +25,10 @@ nav
 {
     margin-top: 20px;
     text-align: center;
+}
+
+a{
+  text-decoration: none;
 }
 
 .blurDiv{
@@ -127,7 +132,7 @@ nav
   line-height: 1.5;
   font-size: 20px;
   border-radius: 0.1rem;
-  border: 2.5px ridge var(--dark-purple);
+  border: 2.5px solid var(--dark-purple);
   justify-self: center;
   display: flex;
 }
@@ -141,6 +146,37 @@ textarea{
   resize: none;
 }
 
+.myCard {
+  height: 650px;
+  width: 175px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding-top: 15px;
+  margin: 20px;
+  background-color: var(--dark-purple);
+  color: var(--red);
+}
+
+.myCard img{
+  width: 295px;
+  height: 390px;
+  padding: 0;
+  border: 2.5px solid black;
+}
+
+.blkDiv{
+  background-color: black;
+  border-radius: .5px;
+  margin: 0 10px 20px 10px
+}
+
+.showcase{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
 
 .glow {
   font-size: 80px;
@@ -150,6 +186,7 @@ textarea{
   -moz-animation: glow 1s ease-in-out infinite alternate;
   animation: glow 1s ease-in-out infinite alternate;
 }
+
 @-webkit-keyframes glow {
   from {
       text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;

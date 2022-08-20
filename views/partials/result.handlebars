@@ -1,12 +1,11 @@
-<div class="card gameResults" style="width:20rem;">
+<div class="card myCard" style="width:20rem;">
     <a href="http://localhost:3001/api/games/single/{{id}}">
-    <img class="card-img-top" src="{{cover_art_url}}" alt="Card image cap">
-    <div class="card-body">
-        <h6 class="card-text" style="font-family: Arial, Helvetica, sans-serif; color:rgb(248, 245, 245)">{{title}}</h6>
-        <div class='ratingDiv'>
-            <p>{{rating}}/100</p>
-            {{getStars rating}}
-        </div>
+        <img class="card-img-top" src="{{cover_art_url}}" alt="Card image cap">
+        <div class="card-body">
+            <h6 class="card-text" style="font-family: Verdana, Geneva, Tahoma, sans-serif; color:rgb(248, 245, 245)">{{title}}</h6>
+            <div class='ratingDiv'>
+                <p>{{rating}}/100</p>
+            </div>
     </a>
 
     <br>

@@ -1,19 +1,19 @@
 <section class="row vh-100 gradient-custom">
-  {{!-- <div class="container py-5 h-100"> --}}
-    <div class="card bg-dark text-white" style="border-radius: 5rem;">
+    <div class="card bg-dark text-white blkDiv">
       <div class="card-body p-5 text-center">
-        <p class="text-white-50 mb-5">Search more games</p>
+        <p style="text-align: center; color: white">Search our database</p>
         <div class="form-outline form-white mb-4">
           <!-- search bar -->
           <input type="search" id="searchBar" class="form-control form-control-lg" />
-          <button type="button" id="searchSubmit" for="search">Search</button>
+          <button style="margin-top: 20px" class="myBtn"type="button" id="searchSubmit" for="search">Search</button>
         </div>
       </div>
     </div>
 
-{{#each gameResults as |game|}}
+  {{#each gameResults as |game|}}
     {{> result}}
-{{/each}}
+  {{/each}}
+
 </section>
 <script rel="script" src="/public/js/games.js"></script>
   <script src="/public/js/search.js"></script>
