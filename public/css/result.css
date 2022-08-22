@@ -28,6 +28,13 @@
     align-items: center;
 }
 
+.review{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
 body,
 header,
 .gradient-custom {

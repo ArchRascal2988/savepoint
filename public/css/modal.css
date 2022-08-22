@@ -39,6 +39,13 @@
     min-width: 75%;
   }
   
+  .inputDiv{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
   .inputDiv p input{
     font-weight: 250;
     font-size: 38px;
@@ -71,7 +78,6 @@
     border-radius: 0.1rem;
     border: 2.5px solid var(--dark);
     justify-self: center;
-    display: flex;
   }
   
   .ui-widget-header{

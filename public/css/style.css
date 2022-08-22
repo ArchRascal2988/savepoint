@@ -87,7 +87,7 @@ a{
 
 .myCard {
   height: 650px;
-  width: 175px;
+  width: 29.5%;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
