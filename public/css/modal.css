@@ -1,0 +1,84 @@
+.reviewModal{
+    visibility: hidden;
+    opacity: 0;
+    width: 75vh;
+    height:80vh;
+    background-color: var(--light-pink);
+    border-radius: 0.1rem;
+    border: 2.5px ridge var(--dark-purple);
+    position: fixed;
+    bottom: 10%;
+    right: 32%;
+    z-index: 2;
+    transition: visibility .1s ease-out, opacity .1s ease-out;
+  }
+  
+  .reviewModal form{
+    min-height: 100%;
+    min-width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .inputDiv label{
+    text-align: center;
+    width: 100%;
+    font-size: 30px;
+    font-style: oblique;
+    font-weight: 600;
+  }
+  
+  .reviewModal form + .formDiv{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 10px 0;
+    min-width: 75%;
+  }
+  
+  .inputDiv p input{
+    font-weight: 250;
+    font-size: 38px;
+    color:#ffff00ee;
+    transition: color 0.5s linear;
+  }
+  
+  #slider-range-min{
+    width: 90%;
+  }
+  
+  .close{
+    display: inline;
+    width: 50%;
+    margin: 0 10px 0 10px;
+    background-color: transparent;
+  }
+  
+  #rating{
+    background-color: none;
+    width: min-content;
+  }
+  
+  #notes{
+    width: 65vh;
+    height: 35vh;
+    padding: 12px;
+    line-height: 1.5;
+    font-size: 20px;
+    border-radius: 0.1rem;
+    border: 2.5px solid var(--dark);
+    justify-self: center;
+    display: flex;
+  }
+  
+  .ui-widget-header{
+    background-image:none;
+    background-color: var(--dark);
+  }
+  
+  textarea{
+    resize: none;
+  }

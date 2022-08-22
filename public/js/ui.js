@@ -13,18 +13,15 @@ const init= ()=>{
             rating.val(ui.value)
             if(ui.value<=33){
                 rating.css({
-                    "color": "#c25265",
-                    "font-weight": "250"
+                    "color": "#ff2d2d"
                 })
             } else if(ui.value>=34 && ui.value<=66){
                 rating.css({
-                    "color": "#e9e63e",
-                    "font-weight": "400"
+                    "color": "#ffff00ee"
                 })
             } else if(ui.value>=67){
                 rating.css({
-                    "color": "#7de93ee3",
-                    "font-weight": "550"
+                    "color": "#00ff11cb"
                 })
             }
         }

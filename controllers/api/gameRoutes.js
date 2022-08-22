@@ -122,6 +122,7 @@ router.get('/single/:id', async(req,res) => {
         if(!gameData) res.status(404).json({message: "No game found with this ID"});
 
         const gameResult = gameData.get({plain:true})
+        
         res.render ('gameDetails',{
             loggedIn: req.session.loggedIn,  
             gameResult,

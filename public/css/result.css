@@ -1,4 +1,32 @@
+#gameDetails{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+}
 
+#gameDetails section, #gameDetails div{
+    margin: 25px 15px 25px 15px;
+}
+
+#gameDetails section{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+
+#infoDiv section{
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+#trailerDiv{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
 
 body,
 header,

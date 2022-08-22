@@ -14,8 +14,10 @@
   <link rel="stylesheet" href="/public/css/jass.css">
   <link rel="stylesheet" href="/public/css/style.css">
   <link rel="stylesheet" href="/public/css/homepage.css">
+    <link rel="stylesheet" href="/public/css/modal.css">
   <link rel="stylesheet" href="/public/css/login.css">
   <link rel="stylesheet" href="/public/css/faves.css">
+  <link rel="stylesheet" href="/public/css/result.css">
   <title>Savepoint</title>
 </head>
 
@@ -47,7 +49,7 @@
         <div class="inputDiv">
           <p>
             <label class="close" for="rating">Rating: </label>
-            <input class="close" id="rating" placeholder="50" style="border:0; color:#6B3073; font-weight:bold;">
+            <input class="close" id="rating" placeholder="50" style="border: none">
           </p>
 
           <div id="slider-range-min"></div>
@@ -69,11 +71,11 @@
   
 </main>
 
-<footer>
+{{!-- <footer>
   <div>
     <p>SAMPLE FOOTER</p>
   </div>
- </footer>
+ </footer> --}}
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 {{#if loggedIn}}
   <script rel="script/js" src="/public/js/logout.js"></script>

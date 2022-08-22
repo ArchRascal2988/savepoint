@@ -1,28 +1,53 @@
 <section class="vh-100 gradient-custom">
-    <div class="card bg-dark text-white blkDiv">
-      <div class="card-body p-5 text-center">
-        <p style="text-align: center; color: white">Search our database</p>
-        <div class="form-outline form-white mb-4">
-          <!-- search bar -->
+  <div class="card bg-dark text-white">
+    <div class="card-body p-5 text-center">
+      <p style="text-align: center; color: white">Search our database</p>
+      <div class="form-outline form-white mb-4">
+        <form>
           <input type="search" id="searchBar" class="form-control form-control-lg" />
-          <button style="margin-top: 20px" class="myBtn"type="button" id="searchSubmit" for="search">Search</button>
-        </div>
+          <button style="margin-top: 20px" class="myBtn"type="submit" id="searchSubmit" for="search">Search</button>
+        </form>  
       </div>
+    </div>
+  </div>
 
   <div class="blkDiv"> 
-    <div class="card bg-dark text-white" style="border-radius: 1rem;">
-      <div class="card-body p-5 text-center">
-        <div class="mb-md-5 mt-md-4 pb-5">
-          <h2 class="fw-bold mb-2 text-uppercase">{{gameResult.title}}</h2>
-          <p>Release Date: {{getDate gameResult.release_date}}</p>
+    <div id="gameDetails">
+      <section>
+        <div id="headerDiv">
+          <div> 
+            <h2 class="textRed">{{gameResult.title}}</h2>
+            <p class="textWhite">Release Date: {{getDate gameResult.release_date}}</p>  
+          </div>
           <img style="width: 18rem; heigh:20rem" src="{{gameResult.cover_art_url}}"/>
-          <br>
-          <h4 class="fw mb-2">{{gameResult.description}}</h4>
-          <br>
-          <h4 class="fw mb-2">Game rating: {{gameResult.rating}}/100</h4>
-          <button data-id= {{id}} id="addPBtn" class="btn btn-primary">★ Favorite</button>
         </div>
+
+        <div id="infoDiv">
+          <section>
+            <h4 class="textRed">Game rating: {{gameResult.rating}}/100</h4>
+            <p class="textWhite">{{gameResult.description}}</p>
+          </section>
+
+          <section>
+            <h4 class="textRed">Genres:</h4>
+            <div id="genreTags">
+              {{#each gameResult.genres as |gTag|}}
+                {{> gTag}}
+              {{/each}}
+            </div>
+          </section>
+
+        </div>
+      </section>
+
+      
+
+      <div id="trailerDiv">
+        <h4 class="textRed">Trailer</h4>
+        <iframe src="{{gameResult.trailer_url}}"></iframe>
       </div>
+      <button data-id={{gameResult.id}}  id="addPBtn" class="btn btn-primary">★ Favorite</button>
+    </div>
   </div>
 
   <div class="blkDiv">
@@ -30,12 +55,17 @@
       <div class="card-body p-5 text-center">
         <div class="mb-md-5 mt-md-4 pb-5">
           <h2 class="fw-bold mb-2 text-uppercase">Reviews</h2>
-          <button id='addRBtn' data-id= {{id}} data-rating={{rating}} class="btn btn-primary">Add a Review</button>
+          <button id='addRBtn' data-id= {{gameResult.id}} data-rating={{gameResult.rating}} class="btn btn-primary">Leave a Review +</button>
           
           <div>
+          {{#if gameResult.reviews}}
             {{#each gameResult.reviews as |review|}}
               {{> review}}
             {{/each}}
+            
+          {{else}}
+            <h1 class="textWhite" style="text-align: center"> Sorry no reviews just yet :(.</h1>
+          {{/if}}
           </div>
         </div>
       </div>
@@ -44,4 +74,4 @@
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script rel="script" src="/public/js/games.js"></script>
-  <script src="/public/js/search.js"></script>
+<script src="/public/js/search.js"></script>
