@@ -1,5 +1,10 @@
 const slider= $("#slider-range-min");
 const rating= $("#rating");
+const general= document.querySelector("main");
+const slides= document.getElementsByClassName(".slides");
+console.log(slides)
+
+let currentSlide=1;
 
 const init= ()=>{
     //I know slider slider is incredibly redundant i just think its funny 
@@ -28,6 +33,26 @@ const init= ()=>{
     });
 
     rating.val(slider.slider("value"));
+    showSlides(currentSlide);
 }
+
+const showSlides= (index)=>{
+
+}
+
+const changeSlides= (mod)=>{
+    currentSlide+=mod;
+    showSlides(currentSlide);
+}
+
+general.addEventListener("click",(event)=>{
+    if(event.target.id="prevBtn"){
+        changeSlides(-1)
+    }
+
+    if(event.target.id="nxtBtn"){
+        changeSlides(1);
+    }
+})
 
 init();

@@ -1,4 +1,5 @@
-<section class="vh-100 gradient-custom">
+<!-- Search -->
+<section id="searchContainer">
     <div class="card bg-dark text-white">
       <div class="card-body p-5 text-center">
         <p style="text-align: center; color: white">Search our database</p>
@@ -8,16 +9,25 @@
         </div>
       </div>
     </div>
-    <div class="card bg-dark text-white blkDiv">
-      <div class="card-body p-5 text-center">
-        <h2 class="fw-bold mb-2 text-uppercase">POPULAR GAMES</h2>
-        <div class="mb-md-5 mt-md-4 pb-5 row showcase">
-          {{#each gamesArr as |game|}}
-          {{> result}}
-          {{/each}}
-        </div>
-      </div>
 </section>
+
+<!-- Popular Games -->
+<seciton id="slideshowContainer"> 
+  {{#each gamesArr as |game|}}
+    {{> result index={{@index}}}}
+  {{/each}}
+
+  <a id="prevBtn">&#10094;</a>
+  <a id="nxtBtn" >&#10095;</a>
+</seciton>
+
+
+<section id="reviewContainer" style="display: none;">
+
+</seciton>
+
+
+
  
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script rel="script" src="/public/js/games.js"></script>

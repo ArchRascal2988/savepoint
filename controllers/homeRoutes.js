@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
     const gamesArr=[];
     const blacklist=[];
 
-    for(i=0; i<15;i++){
+    for(i=0; i<7;i++){
       let random= Math.floor(Math.random()*popularGamesData.length);
       if(blacklist.includes(random)){
         while(blacklist.includes(random)){
@@ -33,6 +33,7 @@ router.get('/', async (req, res) => {
     res.render('homepage', { 
       isLogin: false,
       gamesArr,
+      arrLen,
       loggedIn: req.session.loggedIn 
     });
   } catch (err) {
