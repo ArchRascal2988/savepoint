@@ -40,7 +40,7 @@ const init= ()=>{
 
 const showSlides= (index)=>{
     if (index > slides.length) {currentSlide = 1}
-    if (index < 1) {slideIndex = slides.length}
+    if (index < 1) {currentSlide = slides.length}
     for (let i=0; i < slides.length; i++) {
       slides[i].style.display = "none";
     }

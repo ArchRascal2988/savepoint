@@ -79,7 +79,7 @@ router.get("/:gameName", async(req,res) =>{
         const gameResults = gameData.map((game)=> {
             return game.toJSON();
         });
-        console.log(gameResults);
+
 
         res.render ('searchResults', {
             loggedIn: req.session.loggedIn,  

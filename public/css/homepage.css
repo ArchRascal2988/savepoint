@@ -22,7 +22,7 @@ header {
     height: 500px;
     width: 40%;
     position: relative;
-    margin: auto;
+    margin: 50px auto 100px auto;
 }
 
 .slides{

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Game } = require('../models');
+const { User, Game, Review } = require('../models');
 const {Op} = require("sequelize");
 
 router.get('/', async (req, res) => {
@@ -11,6 +11,24 @@ router.get('/', async (req, res) => {
         }
       }
     });
+
+    const reviewsArr= await Review.findAll({
+      limit: 3,
+      order:[
+        ['id', "ASC"]
+      ],
+      include:[
+        {
+          model: User,
+          attributes: ["username"]
+        },
+
+        {
+          model: Game,
+          attributes: ["title"]
+        },
+      ]
+    })
 
     const gamesArr=[];
     const blacklist=[];
@@ -30,11 +48,17 @@ router.get('/', async (req, res) => {
       blacklist.push(random);
     }
 
+    reviewsArr.map((review)=>{
+      return review.get({plain: true})
+    }) 
+
     res.render('homepage', { 
       isLogin: false,
       gamesArr,
+      reviewsArr,
       loggedIn: req.session.loggedIn 
     });
+
   } catch (err) {
     res.status(500).json(err);
   }

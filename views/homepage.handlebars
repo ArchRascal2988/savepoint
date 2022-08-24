@@ -13,20 +13,24 @@
 
 <!-- Popular Games -->
 <section>
-<h4 class="textWhite center">Popular Games</h4>
-<div id="slideshowContainer"> 
-  {{#each gamesArr as |game|}}
-    {{> slide index=@index }}
-  {{/each}}
+  <h4 class="textWhite center">Popular Games</h4>
+  <div id="slideshowContainer"> 
+    {{#each gamesArr as |game|}}
+      {{> slide index=@index }}
+    {{/each}}
 
-  <a id="prevBtn">&#10094;</a>
-  <a id="nxtBtn" >&#10095;</a>
+    <a id="prevBtn">&#10094;</a>
+    <a id="nxtBtn" >&#10095;</a>
 
-</div>
+  </div>
 
-<div id="reviewContainer" style="display: none;">
-
-</div>
+  <div id="reviewContainer">
+  <h4 class="textWhite center">Popular Games</h4>
+  {{log reviewsArr}}
+    {{#each reviewsArr as |review|}}
+      {{> review}}
+    {{/each}}
+  </div>
 
 </seciton>
 
