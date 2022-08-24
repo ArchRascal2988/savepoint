@@ -33,7 +33,6 @@ router.get('/', async (req, res) => {
     res.render('homepage', { 
       isLogin: false,
       gamesArr,
-      arrLen,
       loggedIn: req.session.loggedIn 
     });
   } catch (err) {

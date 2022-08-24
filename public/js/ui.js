@@ -1,7 +1,9 @@
 const slider= $("#slider-range-min");
 const rating= $("#rating");
-const general= document.querySelector("main");
-const slides= document.getElementsByClassName(".slides");
+const nxtBtn= document.querySelector('#nxtBtn');
+const prevBtn= document.querySelector('#prevBtn');
+const slides= document.getElementsByClassName("slides");
+
 console.log(slides)
 
 let currentSlide=1;
@@ -37,7 +39,12 @@ const init= ()=>{
 }
 
 const showSlides= (index)=>{
-
+    if (index > slides.length) {currentSlide = 1}
+    if (index < 1) {slideIndex = slides.length}
+    for (let i=0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slides[currentSlide-1].style.display = "block";
 }
 
 const changeSlides= (mod)=>{
@@ -45,14 +52,14 @@ const changeSlides= (mod)=>{
     showSlides(currentSlide);
 }
 
-general.addEventListener("click",(event)=>{
-    if(event.target.id="prevBtn"){
-        changeSlides(-1)
-    }
+nxtBtn.addEventListener("click",(event)=>{
+    event.preventDefault();
+    changeSlides(1);
+});
 
-    if(event.target.id="nxtBtn"){
-        changeSlides(1);
-    }
-})
+prevBtn.addEventListener("click",(event)=>{
+    event.preventDefault();
+    changeSlides(-1);
+});
 
 init();

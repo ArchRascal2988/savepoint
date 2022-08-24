@@ -1,12 +1,12 @@
 <div class="card myCard" >
-    <a href="http://localhost:3001/api/games/single/{{id}}">
+    <a class="imgLink" href="http://localhost:3001/api/games/single/{{id}}">
         <img class="card-img-top" src="{{cover_art_url}}" alt="Card image cap">
+    </a>
         <div class="card-body">
             <h6 class="card-text" style="font-family: Verdana, Geneva, Tahoma, sans-serif; color:rgb(248, 245, 245)">{{title}}</h6>
             <div class='ratingDiv'>
                 <p>{{rating}}/100</p>
             </div>
-    </a>
 
     <br>
         <button type='button' data-id= {{id}} id="addPBtn" class="btn btn-primary">★ Favorite</button>

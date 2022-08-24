@@ -12,17 +12,21 @@
 </section>
 
 <!-- Popular Games -->
-<seciton id="slideshowContainer"> 
+<section>
+<h4 class="textWhite center">Popular Games</h4>
+<div id="slideshowContainer"> 
   {{#each gamesArr as |game|}}
-    {{> result index={{@index}}}}
+    {{> slide index=@index }}
   {{/each}}
 
   <a id="prevBtn">&#10094;</a>
   <a id="nxtBtn" >&#10095;</a>
-</seciton>
 
+</div>
 
-<section id="reviewContainer" style="display: none;">
+<div id="reviewContainer" style="display: none;">
+
+</div>
 
 </seciton>
 
