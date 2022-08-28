@@ -24,6 +24,10 @@ Playlist.init(
         played: {
             type: DataTypes.BOOLEAN,
             defaultValue: false,
+        },
+        want:{
+            type: DataTypes.BOOLEAN,
+            defaultValue: true,
         }
     },
     {
