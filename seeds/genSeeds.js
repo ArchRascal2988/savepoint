@@ -7,9 +7,9 @@ const seedGenres= async () =>{
         url: "https://api.igdb.com/v4/genres",
         headers:{
             "Client-ID": "236s12ecjdnerb99bz116ajg178wx1",
-            "Authorization": "Bearer 9sgq4fie7v3iaay562o1rorxbb4wfz"
+            "Authorization": "Bearer u9gwkgi94upmmynt9vqtkj9ho3pysx"
         },
-        data: "fields: name; limit: 100;"
+        data: "fields name; limit 500;"
     }).then((res)=>{
         return res.data;
     });

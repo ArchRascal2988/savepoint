@@ -35,7 +35,7 @@ const grabRaw= async (offset)=>{
         url: "https://api.igdb.com/v4/games",
         headers:{
             "Client-ID": "236s12ecjdnerb99bz116ajg178wx1",
-            "Authorization": "Bearer 9sgq4fie7v3iaay562o1rorxbb4wfz"
+            "Authorization": "Bearer u9gwkgi94upmmynt9vqtkj9ho3pysx"
         },
         data: `fields: cover.image_id, first_release_date, genres.name, name, platforms.name,player_perspectives.name, summary, total_rating, involved_companies.company.name, videos.video_id; where: first_release_date!=null & summary!=null & total_rating!=null & player_perspectives!= null & videos!=null & cover!=null &category=0 & platforms.name= ("PC(Microsoft Windows)", "Mac", "Nintendo Switch", "Xbox One", "PlayStation 4", "PlayStation 3", "PlayStation 2", "Playstation", "Dreamcast", "Xbox", "Nintendo 64", "Wii U", "Super Nintendo Entertainment System (SNES)", "Nintendo GameCube", "Wii", "Playstation 5", "Xbox Series X|S", "Xbox 360") & platforms.name!=("Linux", "iOS", "PC DOS", "Android", "Amiga", "Atarti ST/STE", "Apple II", "Apple IIGS", "Sega Mega Drive/Genesis", "PlayStation Portable", "3DO Interactive Multiplayer", "Atari Jaguar", "Sega CD", "Amiga CD32") & genres.name != "Visual Novel" & genres.name != "Point-and-Click"; limit: 500; offset: ${offset}; sort: id asc;`
     }).then(async (res)=>{

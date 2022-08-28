@@ -7,9 +7,11 @@ const seedPlatforms= async () =>{
         url: "https://api.igdb.com/v4/platforms",
         headers:{
             "Client-ID": "236s12ecjdnerb99bz116ajg178wx1",
-            "Authorization": "Bearer 9sgq4fie7v3iaay562o1rorxbb4wfz"
+            "Authorization": "Bearer u9gwkgi94upmmynt9vqtkj9ho3pysx"
         },
-        data: `fields: name; limit: 500; where: generation!=null & category= 1 & name!= "Ouya" & name!= "Zeebo" & name!= "Playdia" & name!= "PC-FX" & name!= "Amiga CD32" & name!= "Virtual Boy" & name!= "Atari Jaguar" & name!= "3DO Interactive Multiplayer" & name!= "Sega Pico" & name!= "Sega Saturn" & name!= "Satellaview" & name!= "Nintendo PlayStation" & name!= "Neo Geo CD" & name!= "PC Engine SuperGrafx" & name!= "TurboGrafx-16/PC Engine" & name!= "Neo Geo AES" & name!= "Sega CD"  & name!= "Sega 32X" & name!= "Super Famicom" & name!= "Sega Mega Drive/Genesis" & generation>3;`
+        data: `fields name, category, generation, platform_family; 
+        limit 500; 
+        where generation!=null & platform_family!=null & category= 1 & generation>3;`
     }).then((res)=>{
         return res.data;
     });
