@@ -15,7 +15,28 @@ router.post('/:gameId/add', withAuth, async (req,res)=>{
   }
 });
 
-router.put('/:gameId', withAuth, async (req,res)=>{
+router.put('/:gameId/start', withAuth, async (req,res)=>{
+  try{
+    const newPlayed= await Playlist.update({
+      want: false
+    },
+    {
+      where:{
+        user_id: req.session.userId,
+        game_id: req.params.gameId
+      }
+    })
+    if(!newPlayed){
+      res.status(404).json({message:"Something went wrong :(. Game or user not found."});
+    }
+    res.status(200).json(newPlayed);
+  }
+  catch(err){
+    res.status(500).json(err);
+  }
+});
+
+router.put('/:gameId/end', withAuth, async (req,res)=>{
   try{
     const newPlayed= await Playlist.update({
       played: true

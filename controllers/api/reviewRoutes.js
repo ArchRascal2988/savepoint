@@ -24,6 +24,7 @@ router.post('/:id/add', withAuth, async (req,res)=>{
 router.put('/:id/change', withAuth, async (req,res)=>{
   try{
     const updatedReview = await Review.update({
+      likes: this.likes + req.body.mod
     },
     {
       where:{

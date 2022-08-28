@@ -1,11 +1,11 @@
-<section class="vh-100 gradient-custom">
-  <div class="card bg-dark text-white">
-    <div class="card-body p-5 text-center">
-      <p style="text-align: center; color: white">Search our database</p>
-      <div class="form-outline form-white mb-4">
+<section>
+  <div class="textWhite">
+    <div class="search">
+      <p style="textWhite">Search our database</p>
+      <div>
         <form>
           <input type="search" id="searchBar" class="form-control form-control-lg" />
-          <button style="margin-top: 20px" class="myBtn"type="submit" id="searchSubmit" for="search">Search</button>
+          <button style="margin-left: 20px;" class="myBtn" type="submit" id="searchSubmit" for="search">Search</button>
         </form>  
       </div>
     </div>
@@ -51,10 +51,9 @@
   </div>
 
   <div class="blkDiv">
-    <div class="card bg-dark text-white" style="border-radius: 1rem;">
-      <div class="card-body p-5 text-center">
-        <div class="mb-md-5 mt-md-4 pb-5">
-          <h2 class="fw-bold mb-2 text-uppercase">Reviews</h2>
+    <div class="text-white">
+      <div>
+          <h2 >Reviews</h2>
           <button id='addRBtn' data-id= {{gameResult.id}} data-rating={{gameResult.rating}} class="btn btn-primary">Leave a Review +</button>
           
           <div>
@@ -68,7 +67,6 @@
           {{/if}}
           </div>
         </div>
-      </div>
   </section>
 </div>
 
