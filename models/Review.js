@@ -19,7 +19,8 @@ Review.init(
         },
         likes:{
             type: DataTypes.INTEGER,
-            defaultValue: 0
+            defaultValue: 0,
+            allowNull: true
         },
         game_id:{
             type:DataTypes.INTEGER,
