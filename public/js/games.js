@@ -54,7 +54,7 @@ const addReviewHandler= async () =>{
 
 const ratingUpdate= async (rating) =>{
     
-    const response= await axios.put(`api/games/rating/${currentGame}`,{
+    const response= await axios.put(`/api/games/rating/${currentGame}`,{
         newRating: rating
     })
     .then((res)=>{return res})
@@ -73,12 +73,6 @@ const addPlayHandler= async (id) =>{
     }
 
     else if(response.status==200) alert("Game successfully added.");
-}
-
-const deleteRevHandler= async (id) =>{
-    const response= await axios.post(`/api/reviews/${id}/delete`, {
-
-    });
 }
 
 general.addEventListener("click", (event) =>{

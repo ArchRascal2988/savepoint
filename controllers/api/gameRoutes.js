@@ -136,6 +136,7 @@ router.get('/single/:id', async(req,res) => {
 
 router.put('/rating/:id', async(req,res) => {
     try{
+        console.log("hi");
         const updatedGame = await Game.update ({
             rating: req.body.newRating
         },

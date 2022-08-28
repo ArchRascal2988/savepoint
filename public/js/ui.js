@@ -4,7 +4,7 @@ const nxtBtn= document.querySelector('#nxtBtn');
 const prevBtn= document.querySelector('#prevBtn');
 const slides= document.getElementsByClassName("slides");
 
-console.log(slides)
+
 
 let currentSlide=1;
 
@@ -35,7 +35,9 @@ const init= ()=>{
     });
 
     rating.val(slider.slider("value"));
-    showSlides(currentSlide);
+    if(nxtBtn && prevBtn){
+        showSlides(currentSlide);
+    }
 }
 
 const showSlides= (index)=>{
@@ -52,14 +54,17 @@ const changeSlides= (mod)=>{
     showSlides(currentSlide);
 }
 
-nxtBtn.addEventListener("click",(event)=>{
-    event.preventDefault();
-    changeSlides(1);
-});
+if(nxtBtn && prevBtn){
+    nxtBtn.addEventListener("click",(event)=>{
+        event.preventDefault();
+        changeSlides(1);
+    });
+    
+    prevBtn.addEventListener("click",(event)=>{
+        event.preventDefault();
+        changeSlides(-1);
+    });
+}
 
-prevBtn.addEventListener("click",(event)=>{
-    event.preventDefault();
-    changeSlides(-1);
-});
 
 init();

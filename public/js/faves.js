@@ -1,7 +1,7 @@
 const general= document.querySelector("main");
 
 const updateHandler= async (id) =>{
-    const response= await axios.put(`/api/playlist/${id}`)
+    const response= await axios.put(`/api/playlist/${id}/`)
     .then((res)=>{ return res})
     .catch((err)=> alert(err));
     

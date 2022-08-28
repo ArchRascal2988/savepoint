@@ -24,10 +24,12 @@ Playlist.init(
         played: {
             type: DataTypes.BOOLEAN,
             defaultValue: false,
+            allowNull: true
         },
         want:{
             type: DataTypes.BOOLEAN,
             defaultValue: true,
+            allowNull: true
         }
     },
     {

@@ -4,6 +4,7 @@ const withAuth = require('../../utils/auth');
 
 router.post('/:gameId/add', withAuth, async (req,res)=>{
   try{
+    console.log(req.session.userId, req.params.gameId)
     const newGame= await Playlist.create({
       user_id: req.session.userId,
       game_id: req.params.gameId
