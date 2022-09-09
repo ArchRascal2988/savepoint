@@ -1,10 +1,9 @@
 const axios= require("axios");
 const {GameGenre, GamePlatform, Game}= require("../models");
 const dbPlatforms= [
-    "PC (Microsoft Windows)","Mac","PlayStation 2","Dreamcast","Nintendo Switch","Xbox","Nintendo 64","Wii U","Super Nintendo Entertainment System (SNES)","PlayStation 3","PlayStation 4","Nintendo GameCube","Wii","PlayStation 5","Xbox Series X|S","Xbox 360","Xbox One","PlayStation",
-];
+    "PC (Microsoft Windows)","Mac","PlayStation 2","Dreamcast","Nintendo Switch","Xbox","Nintendo 64","Wii U","Super Nintendo Entertainment System (SNES)","PlayStation 3","PlayStation 4","Nintendo GameCube","Wii","PlayStation 5","Xbox Series X|S","Xbox 360","Xbox One","PlayStation"];
 const dbGenres=[
-    "Virtual Reality","First person","Third person","Bird view / Isometric", "Text", "Auditory", "Side view", "Fighting", "Shooter", "Music", "Platform" ,"Puzzle","Racing","Real Time Strategy (RTS)","Role-playing (RPG)","Simulator","Sport","Strategy","Turn-based strategy (TBS)","Tactical","Quiz/Trivia","Hack and slash/Beat 'em up","Pinball","Adventure","Arcade","Visual Novel","Indie","Card & Board Game","MOBA","Point-and-click",
+    "Virtual Reality","First person","Third person","Bird view / Isometric", "Text", "Auditory", "Side view", "Fighting", "Shooter", "Music", "Platform" ,"Puzzle","Racing","Real Time Strategy (RTS)","Role-playing (RPG)","Simulator","Sport","Strategy","Turn-based strategy (TBS)","Tactical","Quiz/Trivia","Hack and slash/Beat 'em up","Pinball","Adventure","Arcade","Visual Novel","Indie","Card & Board Game","MOBA","Point-and-click"
 ]
 
 const duplicateFilter= async (gameName, index, arr) =>{

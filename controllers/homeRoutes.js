@@ -4,16 +4,27 @@ const {Op} = require("sequelize");
 
 router.get('/', async (req, res) => {
   try {
-    const popularGamesData= await Game.findAll({
+    const offsetN= await Game.aggregate("id", "Count", {
       where:{
         rating:{
           [Op.gte]: 90
         }
       }
+    })
+    .then((count)=> (Math.floor(Math.random()* (count+1))));
+
+    const gamesData= await Game.findAll({
+      limit: 8,
+      where:{
+        rating:{
+          [Op.gte]: 90
+        }
+      },
+      offset: offsetN
     });
 
-    const reviewsArr= await Review.findAll({
-      limit: 3,
+    const reviewsData= await Review.findAll({
+      limit: 8,
       order:[
         ['id', "ASC"]
       ],
@@ -30,32 +41,14 @@ router.get('/', async (req, res) => {
       ]
     })
 
-    const gamesArr=[];
-    const blacklist=[];
-
-    for(i=0; i<7;i++){
-      let random= Math.floor(Math.random()*popularGamesData.length);
-      if(blacklist.includes(random)){
-        while(blacklist.includes(random)){
-          random= Math.floor(Math.random()*popularGamesData.length);
-        }
-      }
-
-      let showcaseItem= popularGamesData[random]
-      showcaseGame= showcaseItem.get({plain:true});
-
-      gamesArr.push(showcaseGame);
-      blacklist.push(random);
-    }
-
-    reviewsArr.map((review)=>{
-      return review.get({plain: true})
-    }) 
-
+    const reviewArr= JSON.parse(JSON.stringify(reviewsData));
+    const gameArr= JSON.parse(JSON.stringify(gamesData));
+    console.log(reviewArr)
+    console.log(gameArr)
     res.render('homepage', { 
       isLogin: false,
-      gamesArr,
-      reviewsArr,
+      gameArr,
+      reviewArr,
       loggedIn: req.session.loggedIn 
     });
 

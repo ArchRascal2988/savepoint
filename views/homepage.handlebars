@@ -15,7 +15,7 @@
 <section>
   <h4 class="textWhite center">Popular Games</h4>
   <div id="slideshowContainer"> 
-    {{#each gamesArr as |game|}}
+    {{#each gameArr as |game|}}
       {{> slide index=@index }}
     {{/each}}
 
@@ -25,9 +25,8 @@
   </div>
 
   <div id="reviewContainer">
-  <h4 class="textWhite center">Popular Games</h4>
-  {{log reviewsArr}}
-    {{#each reviewsArr as |review|}}
+  <h4 class="textWhite center">Recent Reviews</h4>
+    {{#each reviewArr as |review|}}
       {{> review}}
     {{/each}}
   </div>

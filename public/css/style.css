@@ -74,6 +74,11 @@ a{
   text-decoration: none;
 }
 
+a:hover{
+  text-decoration: none;
+  color: initial;
+}
+
 .blurDiv{
   min-width: 100%;
   min-height: 100%;
@@ -107,8 +112,7 @@ a{
   background-color: var(--dark-purple);
 }
 
-.imgLink{
-  text-decoration: none;
+.dummyLink{
   position: relative;
 }
 
