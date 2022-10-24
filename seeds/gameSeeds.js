@@ -19,7 +19,7 @@ const duplicateFilter= async (gameName, index, arr) =>{
 
 const init=async ()=>{
     let totGameData=[];
-    for(i=0; i<16; i++){
+    for(i=0; i<5; i++){
         let offset= i*500;
         let gamesRaw= await grabRaw(offset);
         totGameData= totGameData.concat(gamesRaw);
