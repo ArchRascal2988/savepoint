@@ -26,9 +26,13 @@
 
   <div id="reviewContainer">
   <h4 class="textWhite center">Recent Reviews</h4>
+  {{#if reviewArr}}
     {{#each reviewArr as |review|}}
       {{> review}}
     {{/each}}
+  {{else}}
+    <p>No review's just yet :(.</p>
+  {{/if}}
   </div>
 
 </seciton>
