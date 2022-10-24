@@ -39,12 +39,12 @@ router.get('/', async (req, res) => {
           attributes: ["title"]
         },
       ]
-    })
+    });
+
 
     const reviewArr= JSON.parse(JSON.stringify(reviewsData));
     const gameArr= JSON.parse(JSON.stringify(gamesData));
-    console.log(reviewArr)
-    console.log(gameArr)
+
     res.render('homepage', { 
       isLogin: false,
       gameArr,
