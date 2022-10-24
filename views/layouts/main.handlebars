@@ -32,9 +32,9 @@
       <!-- links for nav bar can go here -->
       <a id="navLink" href="/home">Home</a>
       {{#if loggedIn}}
-      <a id="navLink" href="/logout" class="logout">Logout</a>
+      <a id="navLink" href="api/user/logout" class="logout">Logout</a>
       {{else}}
-      <a id="navLink" href="/login">Login</a>
+      <a id="navLink" href="landing/login">Login</a>
       {{/if}}
       <a id="navLink" href="/favorites">Playlist</a>
       <a id="navLink" href="https://www.igdb.com/" target="_blank">IGDB</a>
